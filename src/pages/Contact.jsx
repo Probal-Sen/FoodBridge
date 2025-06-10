@@ -240,16 +240,16 @@ const Contact = () => {
             <div className="card-body p-4">
               <h5 className="card-title fw-bold mb-3">Follow Us</h5>
               <div className="d-flex">
-                <a href="#" className="btn btn-outline-primary rounded-circle me-2">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary rounded-circle me-2">
                   <i className="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" className="btn btn-outline-primary rounded-circle me-2">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary rounded-circle me-2">
                   <i className="fab fa-twitter"></i>
                 </a>
-                <a href="#" className="btn btn-outline-primary rounded-circle me-2">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary rounded-circle me-2">
                   <i className="fab fa-instagram"></i>
                 </a>
-                <a href="#" className="btn btn-outline-primary rounded-circle">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary rounded-circle">
                   <i className="fab fa-linkedin-in"></i>
                 </a>
               </div>

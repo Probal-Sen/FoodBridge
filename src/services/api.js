@@ -24,7 +24,7 @@ export const authService = {
   login: async (email, password) => {
     // Simulate frontend-only login
     if (!email || !password) {
-      throw { response: { data: { message: 'Email and password are required' } } };
+      throw new Error('Email and password are required');
     }
     // For demo, treat any email/password as valid
     let user = { email, role: email.includes('ngo') ? 'ngo' : 'restaurant', name: 'Demo User' };
@@ -37,7 +37,7 @@ export const authService = {
   register: async (userData) => {
     // Simulate frontend-only registration
     if (!userData.email || !userData.password) {
-      throw { response: { data: { message: 'Email and password are required' } } };
+      throw new Error('Email and password are required');
     }
     let user = { ...userData, role: userData.role || 'restaurant', name: userData.name || 'Demo User' };
     const token = 'mock-token';

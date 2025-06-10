@@ -257,13 +257,13 @@ const About = () => {
                     Former restaurant manager passionate about sustainability and reducing food waste.
                   </p>
                   <div className="d-flex justify-content-center">
-                    <a href="#" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                       <i className="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                       <i className="fab fa-twitter"></i>
                     </a>
-                    <a href="#" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <a href="mailto:adrish@example.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                       <i className="fas fa-envelope"></i>
                     </a>
                   </div>
@@ -280,13 +280,13 @@ const About = () => {
                     Tech entrepreneur with experience building platforms that connect communities.
                   </p>
                   <div className="d-flex justify-content-center">
-                    <a href="#" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                       <i className="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                       <i className="fab fa-twitter"></i>
                     </a>
-                    <a href="#" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <a href="mailto:probal@example.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                       <i className="fas fa-envelope"></i>
                     </a>
                   </div>
@@ -303,13 +303,13 @@ const About = () => {
                     Former nonprofit director with extensive experience in community outreach.
                   </p>
                   <div className="d-flex justify-content-center">
-                    <a href="#" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                       <i className="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                       <i className="fab fa-twitter"></i>
                     </a>
-                    <a href="#" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <a href="mailto:suman@example.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                       <i className="fas fa-envelope"></i>
                     </a>
                   </div>

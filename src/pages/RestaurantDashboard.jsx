@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const RestaurantDashboard = () => {
   // Mock data - in a real app, this would come from an API
-  const [stats, setStats] = useState({
+  const [stats] = useState({
     totalDonations: 24,
     pendingPickups: 2,
     totalMealsSaved: 350,
@@ -11,7 +11,7 @@ const RestaurantDashboard = () => {
     co2Reduction: 612, // in kg
   });
 
-  const [recentDonations, setRecentDonations] = useState([
+  const [recentDonations] = useState([
     {
       id: 1,
       foodItems: 'Mixed vegetables, Pasta, Bread',

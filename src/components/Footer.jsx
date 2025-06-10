@@ -14,16 +14,16 @@ const Footer = () => {
               Bridging restaurants with nearby NGOs to combat food wastage and feed those in need.
             </p>
             <div className="social-icons">
-              <a href="#" className="text-white me-3">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white me-3">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="#" className="text-white me-3">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white me-3">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="#" className="text-white me-3">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white me-3">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a href="#" className="text-white">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white">
                 <i className="fab fa-linkedin-in"></i>
               </a>
             </div>
@@ -60,8 +60,8 @@ const Footer = () => {
             </p>
           </div>
           <div className="col-md-6 text-center text-md-end">
-            <a href="#" className="text-white text-decoration-none small me-3">Privacy Policy</a>
-            <a href="#" className="text-white text-decoration-none small">Terms of Service</a>
+            <a href="/privacy-policy" className="text-white text-decoration-none small me-3">Privacy Policy</a>
+            <a href="/terms-of-service" className="text-white text-decoration-none small">Terms of Service</a>
           </div>
         </div>
       </div>

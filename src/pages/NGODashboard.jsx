@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NGODashboard = () => {
   // Mock data - in a real app, this would come from an API
-  const [stats, setStats] = useState({
+  const [stats] = useState({
     totalPickups: 36,
     scheduledPickups: 3,
     peopleHelped: 750,
@@ -11,7 +11,7 @@ const NGODashboard = () => {
     restaurantPartners: 12,
   });
 
-  const [nearbyDonations, setNearbyDonations] = useState([
+  const [nearbyDonations] = useState([
     {
       id: 1,
       restaurantName: 'Green Garden Restaurant',
@@ -44,7 +44,7 @@ const NGODashboard = () => {
     }
   ]);
 
-  const [scheduledPickups, setScheduledPickups] = useState([
+  const [scheduledPickups] = useState([
     {
       id: 101,
       restaurantName: 'Flavor House',
