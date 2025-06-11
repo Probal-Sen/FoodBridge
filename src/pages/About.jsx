@@ -253,7 +253,7 @@ const About = () => {
                   <img 
                     src="https://ik.imagekit.io/probal/adrish.jpg?updatedAt=1749224504407" 
                     alt="Adrish Das" 
-                    className="rounded-circle mb-3 shadow-sm team-member-img"
+                    className="rounded-circle mb-1 shadow-sm team-member-img"
                     style={{ 
                       width: '150px', 
                       height: '150px', 
@@ -284,7 +284,7 @@ const About = () => {
                   <img 
                     src="https://ik.imagekit.io/probal/probal.jpg?updatedAt=1749223743993" 
                     alt="Probal Sen" 
-                    className="rounded-circle mb-3 shadow-sm team-member-img"
+                    className="rounded-circle mb-1 shadow-sm team-member-img"
                     style={{ 
                       width: '150px', 
                       height: '150px', 
@@ -315,7 +315,7 @@ const About = () => {
                   <img 
                     src="https://ik.imagekit.io/probal/panja.jpg?updatedAt=1749224509352" 
                     alt="Suman Panja" 
-                    className="rounded-circle mb-3 shadow-sm team-member-img"
+                    className="rounded-circle mb-1 shadow-sm team-member-img"
                     style={{ 
                       width: '150px', 
                       height: '150px', 
@@ -347,6 +347,9 @@ const About = () => {
             .team-member {
               cursor: pointer;
               transition: all 0.3s ease-in-out;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
             }
 
             .team-member:hover .team-member-img-wrapper {
@@ -372,7 +375,9 @@ const About = () => {
 
             .team-member-name {
               transition: all 0.3s ease-in-out;
-              display: inline-block;
+              display: block;
+              text-align: center;
+              margin-top: 0.5rem;
             }
           `}
         </style>
