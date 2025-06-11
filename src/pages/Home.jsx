@@ -9,7 +9,7 @@ const Home = () => {
         <div className="container px-4">
           <div className="row gx-5 justify-content-center">
             <div className="col-lg-8">
-              <h1 className="display-5 fw-bold mb-3">FoodBridge</h1>
+              <h1 className="display-5 fw-bold mb-3">FodBridge</h1>
               <p className="lead mb-4">
                 Every Meal Matters, Every Connection Counts
               </p>
