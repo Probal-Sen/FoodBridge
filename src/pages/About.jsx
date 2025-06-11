@@ -251,7 +251,7 @@ const About = () => {
               <div className="team-member">
                 <div className="team-member-img-wrapper">
                   <img 
-                    src="https://ik.imagekit.io/probal/adrish.jpg?updatedAt=1749224504407" 
+                    src="https://ik.imagekit.io/fer380x7d/Adrish?updatedAt=1749674286740" 
                     alt="Adrish Das" 
                     className="rounded-circle mb-1 shadow-sm team-member-img"
                     style={{ 
