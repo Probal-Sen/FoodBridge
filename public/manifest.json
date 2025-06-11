@@ -1,6 +1,7 @@
 {
-  "short_name": "ZeroWaste",
-  "name": "ZeroWaste Connect",
+  "short_name": "FoodBridge",
+  "name": "FoodBridge - Food Donation App",
+  "description": "A platform connecting food donors with local charities to reduce food waste and help those in need.",
   "icons": [
     {
       "src": "favicon.ico",

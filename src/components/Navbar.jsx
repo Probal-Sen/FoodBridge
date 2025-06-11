@@ -94,8 +94,8 @@ const Navbar = () => {
          style={{ transition: 'all 0.3s ease-in-out' }}>
       <div className="container">
         <Link className="navbar-brand d-flex align-items-center" to="/">
-          <i className="fas fa-recycle me-2 text-primary"></i>
-          <span style={{ fontSize: '1.3rem' }}>ZeroWaste Connect</span>
+          <i className="fas fa-text-primary"></i>
+          <span style={{ fontSize: '1.3rem' }}>FoodBridge</span>
         </Link>
         <button
           className="navbar-toggler"
