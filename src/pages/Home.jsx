@@ -11,8 +11,7 @@ const Home = () => {
             <div className="col-lg-8">
               <h1 className="display-5 fw-bold mb-3">ZeroWaste Connect</h1>
               <p className="lead mb-4">
-                Bridging restaurants with nearby NGOs to combat food wastage and
-                ensure that excess food reaches those in need.
+                Every Meal Matters, Every Connection Counts
               </p>
               <div className="d-grid gap-3 d-sm-flex justify-content-sm-center">
                 <Link to="/register" className="btn btn-lg btn-light px-4 me-sm-3">Get Started</Link>
