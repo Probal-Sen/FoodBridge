@@ -1,42 +1,101 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import DefaultProfilePic from './DefaultProfilePic';
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userType, setUserType] = useState(''); // 'restaurant' or 'ngo'
+  const [userType, setUserType] = useState('');
+  const [userData, setUserData] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
+  const checkUserData = () => {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
     if (token && user) {
-      setIsLoggedIn(true);
       try {
         const parsedUser = JSON.parse(user);
+        setIsLoggedIn(true);
+        setUserData(parsedUser);
         setUserType(parsedUser.role);
-      } catch {
+      } catch (error) {
+        console.error('Error parsing user data:', error);
+        setIsLoggedIn(false);
         setUserType('');
+        setUserData(null);
       }
     } else {
       setIsLoggedIn(false);
       setUserType('');
+      setUserData(null);
     }
-  }, [location]);
+  };
 
-  // Mock logout function - would be replaced with actual auth logic
+  useEffect(() => {
+    checkUserData();
+    
+    // Listen for profile updates
+    const handleProfileUpdate = (event) => {
+      const { user } = event.detail;
+      setUserData(user);
+      setUserType(user.role);
+    };
+
+    // Listen for storage changes
+    const handleStorageChange = (e) => {
+      if (e.key === 'user') {
+        checkUserData();
+      }
+    };
+
+    window.addEventListener('profileUpdated', handleProfileUpdate);
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('profileUpdated', handleProfileUpdate);
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      setIsScrolled(offset > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     setIsLoggedIn(false);
     setUserType('');
+    setUserData(null);
     navigate('/');
   };
 
+  const getDashboardLink = () => {
+    if (!isLoggedIn) return '/';
+    return userType === 'restaurant' ? '/restaurant/dashboard' : '/ngo/dashboard';
+  };
+
+  const handleDashboardClick = (e) => {
+    if (!isLoggedIn) {
+      e.preventDefault();
+      navigate('/login');
+    }
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <nav className={`navbar navbar-expand-lg fixed-top ${isScrolled ? 'bg-white shadow-sm' : 'navbar-transparent'}`}
+         style={{ transition: 'all 0.3s ease-in-out' }}>
       <div className="container">
-        <Link className="navbar-brand" to="/">
-          <i className="fas fa-recycle me-2"></i>
-          ZeroWaste Connect
+        <Link className="navbar-brand d-flex align-items-center" to="/">
+          <i className="fas fa-recycle me-2 text-primary"></i>
+          <span style={{ fontSize: '1.3rem' }}>ZeroWaste Connect</span>
         </Link>
         <button
           className="navbar-toggler"
@@ -47,7 +106,7 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <i className="fas fa-bars text-dark"></i>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto">
@@ -57,40 +116,98 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/about">About</Link>
             </li>
+            {isLoggedIn && (
+              <li className="nav-item">
+                <Link 
+                  className="nav-link" 
+                  to={getDashboardLink()}
+                  onClick={handleDashboardClick}
+                >
+                  Dashboard
+                </Link>
+              </li>
+            )}
             {isLoggedIn && userType === 'restaurant' && (
-              <>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/restaurant/dashboard">Dashboard</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/donation/new">Donate Food</Link>
-                </li>
-              </>
+              <li className="nav-item">
+                <Link className="nav-link" to="/donation/new">Donate Food</Link>
+              </li>
             )}
             {isLoggedIn && userType === 'ngo' && (
-              <>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/ngo/dashboard">Dashboard</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/donations">Available Donations</Link>
-                </li>
-              </>
+              <li className="nav-item">
+                <Link className="nav-link" to="/donations">Available Donations</Link>
+              </li>
             )}
             <li className="nav-item">
               <Link className="nav-link" to="/contact">Contact</Link>
             </li>
           </ul>
-          <div className="d-flex">
+          <div className="d-flex align-items-center">
             {!isLoggedIn ? (
               <>
-                <Link to="/login" className="btn btn-outline-success me-2">Login</Link>
-                <Link to="/register" className="btn btn-success">Register</Link>
+                <Link to="/login" className="btn btn-outline-primary me-2">Login</Link>
+                <Link to="/register" className="btn btn-primary">Register</Link>
               </>
             ) : (
               <>
-                <Link to="/profile" className="btn btn-outline-success me-2">Profile</Link>
-                <button onClick={handleLogout} className="btn btn-outline-danger">Logout</button>
+                <div className="dropdown">
+                  <a
+                    className="nav-link dropdown-toggle d-flex align-items-center"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <div className="position-relative">
+                      {userData?.profileImage ? (
+                        <img
+                          src={userData.profileImage}
+                          alt={userData?.name || 'Profile'}
+                          className="rounded-circle border border-2 border-primary"
+                          style={{ 
+                            width: '40px', 
+                            height: '40px', 
+                            objectFit: 'cover'
+                          }}
+                        />
+                      ) : (
+                        <DefaultProfilePic 
+                          name={userData?.name || userData?.organizationName} 
+                          size={40} 
+                          fontSize={16}
+                        />
+                      )}
+                      <span className="position-absolute bottom-0 end-0 p-1 bg-success border border-light rounded-circle">
+                        <span className="visually-hidden">Online</span>
+                      </span>
+                    </div>
+                    <span className="ms-2 fw-medium" style={{ color: isScrolled ? 'var(--dark-gray)' : 'var(--dark-gray)' }}>
+                      {userData?.name || userData?.organizationName || 'User'}
+                    </span>
+                  </a>
+                  <ul className="dropdown-menu dropdown-menu-end">
+                    <li className="px-3 py-2 text-muted small">
+                      Signed in as <br />
+                      <span className="fw-bold">{userData?.email}</span>
+                    </li>
+                    <li><hr className="dropdown-divider" /></li>
+                    <li>
+                      <Link className="dropdown-item" to="/profile">
+                        <i className="fas fa-user me-2 text-primary"></i>Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to={getDashboardLink()}>
+                        <i className="fas fa-tachometer-alt me-2 text-primary"></i>Dashboard
+                      </Link>
+                    </li>
+                    <li><hr className="dropdown-divider" /></li>
+                    <li>
+                      <button onClick={handleLogout} className="dropdown-item text-danger">
+                        <i className="fas fa-sign-out-alt me-2"></i>Logout
+                      </button>
+                    </li>
+                  </ul>
+                </div>
               </>
             )}
           </div>

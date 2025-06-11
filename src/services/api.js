@@ -19,6 +19,23 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+// Add response interceptor for error handling
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    // Handle network errors
+    if (!error.response) {
+      console.error('Network error:', error);
+      throw new Error('Network error. Please check your connection.');
+    }
+    
+    // Handle API errors
+    const message = error.response?.data?.message || 'An unexpected error occurred';
+    console.error('API error:', message);
+    throw error;
+  }
+);
+
 // Auth services
 export const authService = {
   login: async (email, password) => {
@@ -70,8 +87,28 @@ export const donationService = {
   },
 
   createDonation: async (donationData) => {
-    const response = await api.post('/donations', donationData);
-    return response.data;
+    // Format the donation data
+    const formattedData = {
+      foodType: donationData.foodType,
+      foodDescription: donationData.foodItems,
+      quantity: Number(donationData.quantity),
+      quantityUnit: donationData.quantityUnit,
+      estimatedMeals: donationData.estimatedMeals ? Number(donationData.estimatedMeals) : null,
+      pickupDate: donationData.pickupDate,
+      pickupWindow: `${donationData.pickupStartTime} - ${donationData.pickupEndTime}`,
+      allergenInfo: donationData.allergenInfo || null,
+      dietaryInfo: donationData.dietaryInfo || null,
+      additionalInfo: donationData.additionalInfo || null,
+      restaurantId: JSON.parse(localStorage.getItem('user'))?.id
+    };
+
+    try {
+      const response = await api.post('/donations', formattedData);
+      return response.data;
+    } catch (error) {
+      console.error('Error creating donation:', error);
+      throw error;
+    }
   },
 
   updateDonation: async (id, updateData) => {

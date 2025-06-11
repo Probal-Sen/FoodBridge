@@ -247,77 +247,135 @@ const About = () => {
             </div>
           </div>
           <div className="row gx-5 justify-content-center">
-            <div className="col-lg-4 col-md-6 mb-5">
-              <div className="card border-0 shadow">
-                <img src="https://ik.imagekit.io/probal/adrish.jpg?updatedAt=1749224504407" className="card-img-top" alt="Team Member" />
-                <div className="card-body text-center p-4">
-                  <h5 className="card-title mb-1">Adrish Das</h5>
-                  <div className="small text-muted mb-3">Founder & CEO</div>
-                  <p className="card-text">
-                    Former restaurant manager passionate about sustainability and reducing food waste.
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="mailto:adrish@example.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
-                      <i className="fas fa-envelope"></i>
-                    </a>
-                  </div>
+            <div className="col-lg-3 col-md-4 mb-4 text-center">
+              <div className="team-member">
+                <div className="team-member-img-wrapper">
+                  <img 
+                    src="https://ik.imagekit.io/probal/adrish.jpg?updatedAt=1749224504407" 
+                    alt="Adrish Das" 
+                    className="rounded-circle mb-3 shadow-sm team-member-img"
+                    style={{ 
+                      width: '150px', 
+                      height: '150px', 
+                      objectFit: 'cover',
+                      border: '3px solid #e9ecef',
+                      transition: 'all 0.3s ease-in-out'
+                    }}
+                  />
+                </div>
+                <h5 className="mb-2 team-member-name">Adrish Das</h5>
+                <div className="d-flex justify-content-center">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <i className="fab fa-linkedin-in"></i>
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <i className="fab fa-twitter"></i>
+                  </a>
+                  <a href="mailto:adrish@example.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <i className="fas fa-envelope"></i>
+                  </a>
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 mb-5">
-              <div className="card border-0 shadow">
-                <img src="https://ik.imagekit.io/probal/probal.jpg?updatedAt=1749223743993" className="card-img-top" alt="Team Member" />
-                <div className="card-body text-center p-4">
-                  <h5 className="card-title mb-1">Probal Sen</h5>
-                  <div className="small text-muted mb-3">CTO</div>
-                  <p className="card-text">
-                    Tech entrepreneur with experience building platforms that connect communities.
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="mailto:probal@example.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
-                      <i className="fas fa-envelope"></i>
-                    </a>
-                  </div>
+            
+            <div className="col-lg-3 col-md-4 mb-4 text-center">
+              <div className="team-member">
+                <div className="team-member-img-wrapper">
+                  <img 
+                    src="https://ik.imagekit.io/probal/probal.jpg?updatedAt=1749223743993" 
+                    alt="Probal Sen" 
+                    className="rounded-circle mb-3 shadow-sm team-member-img"
+                    style={{ 
+                      width: '150px', 
+                      height: '150px', 
+                      objectFit: 'cover',
+                      border: '3px solid #e9ecef',
+                      transition: 'all 0.3s ease-in-out'
+                    }}
+                  />
+                </div>
+                <h5 className="mb-2 team-member-name">Probal Sen</h5>
+                <div className="d-flex justify-content-center">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <i className="fab fa-linkedin-in"></i>
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <i className="fab fa-twitter"></i>
+                  </a>
+                  <a href="mailto:probal@example.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <i className="fas fa-envelope"></i>
+                  </a>
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 mb-5">
-              <div className="card border-0 shadow">
-                <img src="https://ik.imagekit.io/probal/panja.jpg?updatedAt=1749224509352" className="card-img-top" alt="Team Member" />
-                <div className="card-body text-center p-4">
-                  <h5 className="card-title mb-1">Suman Panja</h5>
-                  <div className="small text-muted mb-3">NGO Relations Director</div>
-                  <p className="card-text">
-                    Former nonprofit director with extensive experience in community outreach.
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="mailto:suman@example.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
-                      <i className="fas fa-envelope"></i>
-                    </a>
-                  </div>
+            
+            <div className="col-lg-3 col-md-4 mb-4 text-center">
+              <div className="team-member">
+                <div className="team-member-img-wrapper">
+                  <img 
+                    src="https://ik.imagekit.io/probal/panja.jpg?updatedAt=1749224509352" 
+                    alt="Suman Panja" 
+                    className="rounded-circle mb-3 shadow-sm team-member-img"
+                    style={{ 
+                      width: '150px', 
+                      height: '150px', 
+                      objectFit: 'cover',
+                      border: '3px solid #e9ecef',
+                      transition: 'all 0.3s ease-in-out'
+                    }}
+                  />
+                </div>
+                <h5 className="mb-2 team-member-name">Suman Panja</h5>
+                <div className="d-flex justify-content-center">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <i className="fab fa-linkedin-in"></i>
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <i className="fab fa-twitter"></i>
+                  </a>
+                  <a href="mailto:suman@example.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <i className="fas fa-envelope"></i>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <style>
+          {`
+            .team-member {
+              cursor: pointer;
+              transition: all 0.3s ease-in-out;
+            }
+
+            .team-member:hover .team-member-img-wrapper {
+              transform: scale(1.05);
+            }
+            
+            .team-member:hover .team-member-img img {
+              border-color: var(--bs-primary) !important;
+              box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+            }
+
+            .team-member:hover .team-member-name {
+              color: var(--bs-primary);
+              transform: scale(1.05);
+            }
+
+            .team-member-img-wrapper {
+              display: inline-block;
+              padding: 4px;
+              border-radius: 50%;
+              transition: all 0.3s ease-in-out;
+            }
+
+            .team-member-name {
+              transition: all 0.3s ease-in-out;
+              display: inline-block;
+            }
+          `}
+        </style>
       </section>
 
       {/* CTA Section */}

@@ -71,19 +71,43 @@ const ListDonation = () => {
     setLoading(true);
     try {
       const user = JSON.parse(localStorage.getItem('user'));
+      if (!user || user.role !== 'restaurant') {
+        throw new Error('Only restaurants can create donations');
+      }
+
+      // Format pickup date and times
+      const pickupDate = new Date(formData.pickupDate);
+      const startTime = new Date(`${formData.pickupDate} ${formData.pickupStartTime}`);
+      const endTime = new Date(`${formData.pickupDate} ${formData.pickupEndTime}`);
+
+      // Validate dates
+      if (pickupDate < new Date()) {
+        throw new Error('Pickup date cannot be in the past');
+      }
+      if (startTime >= endTime) {
+        throw new Error('Pickup end time must be after start time');
+      }
+
       await donationService.createDonation({
-        foodDescription: formData.foodItems,
-        quantity: Number(formData.quantity),
-        pickupWindow: `${formData.pickupStartTime} - ${formData.pickupEndTime}`,
-        restaurant: user?.id,
+        ...formData,
+        pickupDate: pickupDate.toISOString(),
+        pickupStartTime: formData.pickupStartTime,
+        pickupEndTime: formData.pickupEndTime,
+        restaurant: user.id,
       });
+
       navigate('/restaurant/dashboard', {
         state: { successMessage: 'Your donation has been listed successfully!' }
       });
     } catch (err) {
-      setErrors({ submit: 'Failed to list donation. Please try again.' });
+      console.error('Error creating donation:', err);
+      setErrors({ 
+        submit: err.response?.data?.message || err.message || 'Failed to list donation. Please try again.' 
+      });
       setLoading(false);
       setPreviewMode(false);
+      // Scroll to error message
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
