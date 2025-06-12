@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-4 mb-3 mb-md-0">
-            <h5 className="text-uppercase mb-3">ZeroWaste Connect</h5>
+            <h5 className="text-uppercase mb-3">FoodBridge</h5>
             <p className="small">
               Bridging restaurants with nearby NGOs to combat food wastage and feed those in need.
             </p>
@@ -56,7 +56,7 @@ const Footer = () => {
         <div className="row">
           <div className="col-md-6 text-center text-md-start">
             <p className="small mb-0">
-              &copy; {currentYear} ZeroWaste Connect. All rights reserved.
+              &copy; {currentYear} FoodBridge. All rights reserved.
             </p>
           </div>
           <div className="col-md-6 text-center text-md-end">
