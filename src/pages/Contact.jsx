@@ -47,12 +47,12 @@ const Contact = () => {
   // FAQ data
   const faqs = [
     {
-      question: "How does ZeroWaste Connect work?",
+      question: "How does FoodBridge Connect work?",
       answer: "Our platform connects restaurants with excess food to nearby NGOs who can distribute it to those in need. Restaurants list available food donations, and NGOs can browse and request pickups based on their location and capacity."
     },
     {
       question: "Is there a cost to use the platform?",
-      answer: "No, ZeroWaste Connect is completely free for both restaurants and NGOs. Our mission is to reduce food waste and fight hunger, so we've made our platform accessible to all."
+      answer: "No, FoodBridge Connect is completely free for both restaurants and NGOs. Our mission is to reduce food waste and fight hunger, so we've made our platform accessible to all."
     },
     {
       question: "What types of food can be donated?",
@@ -74,7 +74,7 @@ const Contact = () => {
         <div className="col-md-8 mx-auto text-center">
           <h2 className="fw-bold mb-3">Contact Us</h2>
           <p className="lead">
-            Have questions about ZeroWaste Connect? We're here to help! Reach out to our team through the form below.
+            Have questions about FoodBridge Connect? We're here to help! Reach out to our team through the form below.
           </p>
         </div>
       </div>
@@ -194,7 +194,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h6 className="mb-1">Location</h6>
-                    <p className="mb-0">123 Green Street, Eco City, EC 12345</p>
+                    <p className="mb-0">123 City, EC 12345</p>
                   </div>
                 </li>
                 <li className="d-flex mb-3">
@@ -204,8 +204,8 @@ const Contact = () => {
                   <div>
                     <h6 className="mb-1">Email</h6>
                     <p className="mb-0">
-                      <a href="mailto:info@zerowaste-connect.org" className="text-decoration-none">
-                        info@zerowaste-connect.org
+                      <a href="mailto:info@FoodBridge.org" className="text-decoration-none">
+                        info@foodbridge.org
                       </a>
                     </p>
                   </div>
@@ -217,8 +217,8 @@ const Contact = () => {
                   <div>
                     <h6 className="mb-1">Phone</h6>
                     <p className="mb-0">
-                      <a href="tel:+15551234567" className="text-decoration-none">
-                        +1 (555) 123-4567
+                      <a href="+91 (123) 456-7890" className="text-decoration-none">
+                        +91 (123) 456-7890
                       </a>
                     </p>
                   </div>
@@ -243,8 +243,8 @@ const Contact = () => {
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary rounded-circle me-2">
                   <i className="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary rounded-circle me-2">
-                  <i className="fab fa-twitter"></i>
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary rounded-circle me-2">
+                  <i className="fab fa-x-twitter"></i>
                 </a>
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary rounded-circle me-2">
                   <i className="fab fa-instagram"></i>

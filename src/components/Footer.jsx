@@ -18,7 +18,7 @@ const Footer = () => {
                 <i className="fab fa-facebook-f"></i>
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white me-3">
-                <i className="fab fa-twitter"></i>
+                <i className="fab fa-x-twitter"></i>
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white me-3">
                 <i className="fab fa-instagram"></i>
@@ -41,13 +41,13 @@ const Footer = () => {
             <h5 className="text-uppercase mb-3">Contact Us</h5>
             <ul className="list-unstyled">
               <li className="mb-2">
-                <i className="fas fa-map-marker-alt me-2"></i> 123 Green Street, Eco City
+                <i className="fas fa-map-marker-alt me-2"></i> 123 City
               </li>
               <li className="mb-2">
-                <i className="fas fa-phone me-2"></i> (123) 456-7890
+                <i className="fas fa-phone me-2"></i> +91 (123) 456-7890
               </li>
               <li className="mb-2">
-                <i className="fas fa-envelope me-2"></i> info@zerowaste.org
+                <i className="fas fa-envelope me-2"></i> info@foodbridge.org
               </li>
             </ul>
           </div>

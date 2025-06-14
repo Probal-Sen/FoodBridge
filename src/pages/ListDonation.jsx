@@ -5,6 +5,12 @@ import { donationService } from '../services/api';
 const ListDonation = () => {
   const navigate = useNavigate();
   
+  const formatDate = (dateString) => {
+    if (!dateString) return '';
+    const [year, month, day] = dateString.split('-');
+    return `${day}/${month}/${year}`;
+  };
+
   const [formData, setFormData] = useState({
     foodType: '',
     foodItems: '',
@@ -156,7 +162,7 @@ const ListDonation = () => {
               
               <div className="col-md-6">
                 <h5 className="border-bottom pb-2 mb-3">Pickup Information</h5>
-                <p><strong>Pickup Date:</strong> {formData.pickupDate}</p>
+                <p><strong>Pickup Date:</strong> {formatDate(formData.pickupDate)}</p>
                 <p><strong>Pickup Window:</strong> {formData.pickupStartTime} - {formData.pickupEndTime}</p>
                 <p><strong>Additional Information:</strong> {formData.additionalInfo || 'Not specified'}</p>
               </div>
@@ -323,15 +329,17 @@ const ListDonation = () => {
                     <h5 className="border-bottom pb-2 mb-3">Pickup Information</h5>
                   </div>
                   
+
                   <div className="col-md-4 mb-3">
                     <label htmlFor="pickupDate" className="form-label">Pickup Date <span className="text-danger">*</span></label>
                     <input 
                       type="date" 
+                      value={formData.pickupDate}
                       className={`form-control ${errors.pickupDate ? 'is-invalid' : ''}`}
                       id="pickupDate" 
                       name="pickupDate" 
                       min={new Date().toISOString().split('T')[0]}
-                      value={formData.pickupDate} 
+                      
                       onChange={handleChange}
                     />
                     {errors.pickupDate && <div className="invalid-feedback">{errors.pickupDate}</div>}

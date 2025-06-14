@@ -29,8 +29,8 @@ const DonationDetail = () => {
         address: '123 Main St, Eco City',
         postedTime: '2 hours ago',
         specialInstructions: 'Contains allergens: nuts, dairy',
-        contactPerson: 'John Smith',
-        contactPhone: '+1 (555) 123-4567',
+        contactPerson: 'Food Bridge',
+        contactPhone: '+91 (123) 456-7890',
         isNew: true,
         description: 'We have excess food from a catering event. Food was prepared fresh this morning and properly stored. Includes rice, mixed vegetables curry, and some side dishes. All items are vegetarian. Food needs to be picked up by this evening.',
         availablePickupTimes: [
@@ -189,12 +189,20 @@ const DonationDetail = () => {
                     <strong>{donation.restaurantName}</strong>
                   </p>
                   <p className="mb-3">{donation.address}</p>
-                  
+
                   {/* Placeholder for map - in a real app, this would be an embedded map */}
                   <div className="bg-secondary text-white text-center py-5 rounded">
-                    <i className="fas fa-map-marked-alt fa-3x mb-3"></i>
-                    <p className="mb-0">Map would be displayed here</p>
-                  </div>
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29324.00303568972!2d87.84315600000001!3d23.261261299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1749912432109!5m2!1sen!2sin"
+                        width="100%"
+                        height="450"
+                        style={{ border: 0 }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Google Map Location"
+                      ></iframe>
+                    </div>
                 </div>
               </div>
               

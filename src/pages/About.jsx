@@ -9,7 +9,7 @@ const About = () => {
         <div className="container px-4">
           <div className="row gx-5 justify-content-center">
             <div className="col-lg-8 text-center">
-              <h1 className="display-5 fw-bold mb-3">About ZeroWaste Connect</h1>
+              <h1 className="display-5 fw-bold mb-3">About FoodBridge Connect</h1>
               <p className="lead mb-0">
                 Bridging the gap between restaurants and NGOs to combat food wastage
                 and feed those in need.
@@ -26,7 +26,7 @@ const About = () => {
             <div className="col-lg-6">
               <h2 className="fw-bold mb-3">Our Mission</h2>
               <p className="lead mb-4">
-                ZeroWaste Connect aims to minimize food wastage in urban areas by creating
+                FoodBridge Connect aims to minimize food wastage in urban areas by creating
                 a seamless connection between food providers and distributors.
               </p>
               <p>
@@ -265,13 +265,13 @@ const About = () => {
                 </div>
                 <h5 className="mb-2 team-member-name">Adrish Das</h5>
                 <div className="d-flex justify-content-center">
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                  <a href="https://www.linkedin.com/in/adrish-das-83b494330/" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                     <i className="fab fa-linkedin-in"></i>
                   </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
-                    <i className="fab fa-twitter"></i>
+                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <i className="fab fa-x-twitter"></i>
                   </a>
-                  <a href="mailto:adrish@example.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                  <a href="mailto:adrishd1512@gmail.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                     <i className="fas fa-envelope"></i>
                   </a>
                 </div>
@@ -296,13 +296,13 @@ const About = () => {
                 </div>
                 <h5 className="mb-2 team-member-name">Probal Sen</h5>
                 <div className="d-flex justify-content-center">
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                  <a href="https://www.linkedin.com/in/probal-sen/" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                     <i className="fab fa-linkedin-in"></i>
                   </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
-                    <i className="fab fa-twitter"></i>
+                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <i className="fab fa-x-twitter"></i>
                   </a>
-                  <a href="mailto:probal@example.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                  <a href="mailto:9probalsen@gmail.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                     <i className="fas fa-envelope"></i>
                   </a>
                 </div>
@@ -327,13 +327,13 @@ const About = () => {
                 </div>
                 <h5 className="mb-2 team-member-name">Suman Panja</h5>
                 <div className="d-flex justify-content-center">
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                  <a href="https://www.linkedin.com/in/suman-panja-934694314/" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                     <i className="fab fa-linkedin-in"></i>
                   </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
-                    <i className="fab fa-twitter"></i>
+                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                    <i className="fab fa-x-twitter"></i>
                   </a>
-                  <a href="mailto:suman@example.com" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
+                  <a href="mailto:sumanpanja2005@gmail.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-circle mx-1">
                     <i className="fas fa-envelope"></i>
                   </a>
                 </div>
