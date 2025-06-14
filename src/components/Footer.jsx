@@ -47,7 +47,7 @@ const Footer = () => {
                 <i className="fas fa-phone me-2"></i> +91 (123) 456-7890
               </li>
               <li className="mb-2">
-                <i className="fas fa-envelope me-2"></i> info@foodbridge.org
+                <i className="fas fa-envelope me-2"></i> info@FoodBridge.org
               </li>
             </ul>
           </div>
