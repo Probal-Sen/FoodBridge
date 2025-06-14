@@ -14,6 +14,7 @@ import Profile from './pages/Profile.jsx';
 import Contact from './pages/Contact.jsx';
 import About from './pages/About.jsx';
 import NotFound from './pages/NotFound.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 function App() {
   return (
@@ -21,7 +22,11 @@ function App() {
       <Navbar />
       <main className="flex-grow-1">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          } />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/restaurant/dashboard" element={<RestaurantDashboard />} />

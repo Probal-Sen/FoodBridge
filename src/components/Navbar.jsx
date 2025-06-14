@@ -42,6 +42,14 @@ const Navbar = () => {
       setUserType(user.role);
     };
 
+    // Listen for login event
+    const handleLogin = (event) => {
+      const { user } = event.detail;
+      setIsLoggedIn(true);
+      setUserData(user);
+      setUserType(user.role);
+    };
+
     // Listen for storage changes
     const handleStorageChange = (e) => {
       if (e.key === 'user') {
@@ -50,10 +58,12 @@ const Navbar = () => {
     };
 
     window.addEventListener('profileUpdated', handleProfileUpdate);
+    window.addEventListener('userLogin', handleLogin);
     window.addEventListener('storage', handleStorageChange);
 
     return () => {
       window.removeEventListener('profileUpdated', handleProfileUpdate);
+      window.removeEventListener('userLogin', handleLogin);
       window.removeEventListener('storage', handleStorageChange);
     };
   }, []);

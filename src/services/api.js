@@ -48,6 +48,10 @@ export const authService = {
     const token = 'mock-token';
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
+    
+    // Dispatch custom event for login
+    window.dispatchEvent(new CustomEvent('userLogin', { detail: { user } }));
+    
     return { token, user };
   },
 
