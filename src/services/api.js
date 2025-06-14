@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { mockDonations } from '../data/mockData';
 
 
 const API_URL = 'http://localhost:5000/api';
