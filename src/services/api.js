@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-const API_URL = process.env.NODE_ENV === 'production' 
-  ? '/api'  // In production, use relative path
-  : 'http://localhost:5000/api';  // In development, use local server
+const API_URL = 'http://localhost:5000/api';
 
 // Create axios instance with default config
 const api = axios.create({
@@ -47,7 +45,6 @@ api.interceptors.response.use(
 export const authService = {
   login: async (email, password) => {
     try {
-      console.log('Attempting login with:', { email });
       const response = await api.post('/auth/login', { email, password });
       const { token, user } = response.data;
       
@@ -59,14 +56,12 @@ export const authService = {
       
       return { token, user };
     } catch (error) {
-      console.error('Login error:', error);
       throw error;
     }
   },
 
   register: async (userData) => {
     try {
-      console.log('Attempting registration with:', userData);
       const response = await api.post('/auth/register', userData);
       const { token, user } = response.data;
       
@@ -78,7 +73,6 @@ export const authService = {
       
       return { token, user };
     } catch (error) {
-      console.error('Registration error:', error);
       throw error;
     }
   },

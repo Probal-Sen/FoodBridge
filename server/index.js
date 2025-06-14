@@ -44,6 +44,9 @@ retryConnection();
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/donations', require('./routes/donations'));
+app.use('/api/contact', require('./routes/contact'));
+app.use('/api/profile', require('./routes/profile'));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
