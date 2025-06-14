@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? '/api'  // In production, use relative path
+  : 'http://localhost:5000/api';  // In development, use local server
 
 // Create axios instance with default config
 const api = axios.create({
@@ -23,48 +25,62 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Handle network errors
-    if (!error.response) {
-      console.error('Network error:', error);
+    if (error.response) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      const errorMessage = error.response.data.message || 'An error occurred';
+      console.error('API Error:', errorMessage);
+      throw new Error(errorMessage);
+    } else if (error.request) {
+      // The request was made but no response was received
+      console.error('Network Error:', error.request);
       throw new Error('Network error. Please check your connection.');
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.error('Error:', error.message);
+      throw error;
     }
-    
-    // Handle API errors
-    const message = error.response?.data?.message || 'An unexpected error occurred';
-    console.error('API error:', message);
-    throw error;
   }
 );
 
 // Auth services
 export const authService = {
   login: async (email, password) => {
-    // Simulate frontend-only login
-    if (!email || !password) {
-      throw new Error('Email and password are required');
+    try {
+      console.log('Attempting login with:', { email });
+      const response = await api.post('/auth/login', { email, password });
+      const { token, user } = response.data;
+      
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(user));
+      
+      // Dispatch custom event for login
+      window.dispatchEvent(new CustomEvent('userLogin', { detail: { user } }));
+      
+      return { token, user };
+    } catch (error) {
+      console.error('Login error:', error);
+      throw error;
     }
-    // For demo, treat any email/password as valid
-    let user = { email, role: email.includes('ngo') ? 'ngo' : 'restaurant', name: 'Demo User' };
-    const token = 'mock-token';
-    localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(user));
-    
-    // Dispatch custom event for login
-    window.dispatchEvent(new CustomEvent('userLogin', { detail: { user } }));
-    
-    return { token, user };
   },
 
   register: async (userData) => {
-    // Simulate frontend-only registration
-    if (!userData.email || !userData.password) {
-      throw new Error('Email and password are required');
+    try {
+      console.log('Attempting registration with:', userData);
+      const response = await api.post('/auth/register', userData);
+      const { token, user } = response.data;
+      
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(user));
+      
+      // Dispatch custom event for login
+      window.dispatchEvent(new CustomEvent('userLogin', { detail: { user } }));
+      
+      return { token, user };
+    } catch (error) {
+      console.error('Registration error:', error);
+      throw error;
     }
-    let user = { ...userData, role: userData.role || 'restaurant', name: userData.name || 'Demo User' };
-    const token = 'mock-token';
-    localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(user));
-    return { token, user };
   },
 
   logout: () => {
@@ -75,71 +91,93 @@ export const authService = {
   getCurrentUser: () => {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
-  },
+  }
 };
 
 // Donation services
 export const donationService = {
   getAllDonations: async () => {
-    const response = await api.get('/donations');
-    return response.data;
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(mockDonations);
+      }, 1000);
+    });
   },
 
   getDonationById: async (id) => {
-    const response = await api.get(`/donations/${id}`);
-    return response.data;
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const donation = mockDonations.find(d => d.id === parseInt(id));
+        if (donation) {
+          resolve(donation);
+        } else {
+          reject(new Error('Donation not found'));
+        }
+      }, 1000);
+    });
   },
 
   createDonation: async (donationData) => {
-    // Format the donation data
-    const formattedData = {
-      foodType: donationData.foodType,
-      foodDescription: donationData.foodItems,
-      quantity: Number(donationData.quantity),
-      quantityUnit: donationData.quantityUnit,
-      estimatedMeals: donationData.estimatedMeals ? Number(donationData.estimatedMeals) : null,
-      pickupDate: donationData.pickupDate,
-      pickupWindow: `${donationData.pickupStartTime} - ${donationData.pickupEndTime}`,
-      allergenInfo: donationData.allergenInfo || null,
-      dietaryInfo: donationData.dietaryInfo || null,
-      additionalInfo: donationData.additionalInfo || null,
-      restaurantId: JSON.parse(localStorage.getItem('user'))?.id
-    };
-
-    try {
-      const response = await api.post('/donations', formattedData);
-      return response.data;
-    } catch (error) {
-      console.error('Error creating donation:', error);
-      throw error;
-    }
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const newDonation = {
+          id: mockDonations.length + 1,
+          ...donationData,
+          status: 'available'
+        };
+        mockDonations.push(newDonation);
+        resolve(newDonation);
+      }, 1000);
+    });
   },
 
   updateDonation: async (id, updateData) => {
-    const response = await api.patch(`/donations/${id}`, updateData);
-    return response.data;
-  },
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const index = mockDonations.findIndex(d => d.id === parseInt(id));
+        if (index !== -1) {
+          mockDonations[index] = { ...mockDonations[index], ...updateData };
+          resolve(mockDonations[index]);
+        } else {
+          reject(new Error('Donation not found'));
+        }
+      }, 1000);
+    });
+  }
 };
 
 // Profile services
 export const profileService = {
   getProfile: async () => {
-    const response = await api.get('/profile');
-    return response.data;
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const user = authService.getCurrentUser();
+        resolve(user);
+      }, 1000);
+    });
   },
 
   updateProfile: async (profileData) => {
-    const response = await api.patch('/profile', profileData);
-    return response.data;
-  },
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const user = authService.getCurrentUser();
+        const updatedUser = { ...user, ...profileData };
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+        resolve(updatedUser);
+      }, 1000);
+    });
+  }
 };
 
 // Contact services
 export const contactService = {
   sendContact: async (contactData) => {
-    const response = await api.post('/contact', contactData);
-    return response.data;
-  },
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ message: 'Message sent successfully' });
+      }, 1000);
+    });
+  }
 };
 
 export default api; 
