@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -11,7 +12,12 @@ console.log('JWT Secret:', process.env.JWT_SECRET);
 console.log('Port:', process.env.PORT);
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://your-vercel-domain.vercel.app', 'http://localhost:3000']
+    : 'http://localhost:3000',
+  credentials: true
+}));
 app.use(express.json());
 
 // MongoDB Connection
@@ -44,6 +50,15 @@ retryConnection();
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
+
+// Serve static files in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../build')));
+  
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build', 'index.html'));
+  });
+}
 
 // Error handling middleware
 app.use((err, req, res, next) => {
